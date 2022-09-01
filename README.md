@@ -49,6 +49,10 @@ Brief description
 
 ### **_Screenshots_**
 
+### Component Hierarchy Diagram
+
+<img alt="Component Hierarchy Diagram" width='500' src=""/>
+
 #### Entity Relationship Diagram (ERD)
 
 <img alt="ERD" width='500' src="" />
