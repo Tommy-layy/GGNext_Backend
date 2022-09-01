@@ -6,7 +6,7 @@
 
 ---
 
-### By: Tommy Le
+### Created By: Tommy Le
 
 [Tommy Le](https://www.linkedin.com/in/tommyyle/)
 
@@ -14,7 +14,7 @@
 
 ### **_Links_**
 
-[GGNext Frontend](https://github.com/Tommy-layy/GGNext_Frontend) | [Trello]() | [Backend Deployment]()
+[GGNext Frontend](https://github.com/Tommy-layy/GGNext_Frontend) | [Trello](https://trello.com/b/aNfp9noD/ggnext) | [Backend Deployment]()
 
 ---
 
@@ -40,7 +40,7 @@ Brief description
 - `Fork` & `Clone` this repository.
 - `npm i` to install necessary dependencies.
 
-#### Dependencies include Express, Cors/Morgan, Nodemon, Sequelize. These should already be in the package.json files, but will be good to make sure. Please make sure that your local machine has the proper installations for these, as well.
+#### Dependencies include Express, Cors/Morgan, Nodemon, Sequelize. These should already be in the package.json files. 
 
 #### This repo is only the BACKEND portion of GGNext. The FRONTEND portion is availabla via the link provided above.
 
