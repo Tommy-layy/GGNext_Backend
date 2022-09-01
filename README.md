@@ -14,7 +14,7 @@
 
 ### **_Links_**
 
-[GGNext Frontend](https://github.com/pfknight8/Moosic_Frontend) | [Trello]() | [Backend Deployment]()
+[GGNext Frontend](https://github.com/Tommy-layy/GGNext_Frontend) | [Trello]() | [Backend Deployment]()
 
 ---
 
