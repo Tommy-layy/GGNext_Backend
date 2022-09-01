@@ -14,7 +14,7 @@
 
 ### **_Links_**
 
-[GGNext Frontend](https://github.com/Tommy-layy/GGNext_Frontend) | [Trello](https://trello.com/b/aNfp9noD/ggnext) | [Backend Deployment]()
+[GGNext Frontend](https://github.com/Tommy-layy/GGNext) | [Trello](https://trello.com/b/aNfp9noD/ggnext) | [Backend Deployment]()
 
 ---
 
