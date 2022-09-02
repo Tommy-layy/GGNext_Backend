@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Tommy-layy/GGNext_Backend/issues"
   },
-  "homepage": "https://github.com/Tommy-layy/GGNext_Backend#readme"
+  "homepage": "https://github.com/Tommy-layy/GGNext_Backend#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
