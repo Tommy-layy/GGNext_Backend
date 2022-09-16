@@ -9,10 +9,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Game.belongsTo(models.Favorite, {
-        foreignKey: 'favoriteId',
-        onDelete: 'CASCADE'
-      })
+      // Game.belongsTo(models.Favorite, {
+      //   foreignKey: 'favoriteId',
+      //   onDelete: 'CASCADE'
+      // })
     }
   }
   Game.init(

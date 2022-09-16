@@ -2,8 +2,8 @@ const { Game, Favorite, Favorite_game } = require('../models')
 
 const getFavorite = async (req, res) => {
   try {
-    const favList = await Favorite.findAll()
-    res.send(favList)
+    const allFavorite = await Favorite.findAll()
+    res.send(allFavorite)
   } catch (error) {
     throw error
   }
@@ -11,9 +11,12 @@ const getFavorite = async (req, res) => {
 
 const getFavoriteByUser = async (req, res) => {
   try {
-    user_Id = parseInt(req.params.user_id)
-    let allFavorites = await Favorite.findAll({ where: { userId: user_Id } })
-    res.send(allFavorites)
+    userId = parseInt(req.params.user_id)
+    let userFavorite = await Favorite.findAll({
+      where: { userId: userId }
+      // include: { model: Game, as: 'games', through: { attributes: [] } }
+    })
+    res.send(userFavorite)
   } catch (error) {
     throw error
   }
@@ -28,14 +31,61 @@ const getGamesFromFavorite = async (req, res) => {
   res.send(gameList)
 }
 
+const createFavorite = async (req, res) => {
+  console.log('hello')
+  try {
+    let userId = req.params.user_id
+    let favoriteBody = {
+      userId: userId,
+      ...req.body
+    }
+    let create = await Favorite.create(favoriteBody)
+    res.send(create)
+  } catch (error) {
+    throw error
+  }
+}
+
+const updateFavorite = async (req, res) => {
+  try {
+    let favorite_id = parseInt(req.params.favorite_id)
+    let newFavorite = await Favorite.update(
+      { title: req.body.title },
+      {
+        where: {
+          id: favorite_id
+        },
+        returning: true
+      }
+    )
+    res.send(newFavorite)
+  } catch (error) {
+    throw error
+  }
+}
+
+const deleteFavorite = async (req, res) => {
+  try {
+    let favoriteId = parseInt(req.params.favorite_id)
+    await Favorite.destroy({
+      where: {
+        id: favoriteId
+      }
+    })
+    res.send({ msg: 'List has been deleted!' })
+  } catch (error) {
+    throw error
+  }
+}
+
 const addGamesToFavorite = async (req, res) => {
   try {
     let favoriteId = parseInt(req.params.playlist_id)
     let gameId = parseInt(req.params.game_id)
-    let currentList = await Favorite.findByPk(favoriteId, {
+    let currentFavorite = await Favorite.findByPk(favoriteId, {
       include: { model: Game, as: 'games', through: { attributes: [] } }
     })
-    let currentGames = currentList.songs
+    let currentGames = currentFavorite.games
     if (!currentGames.some((game) => game.id === gameId)) {
       let favorite_game = {
         favoriteId,
@@ -75,6 +125,9 @@ module.exports = {
   getFavorite,
   getFavoriteByUser,
   getGamesFromFavorite,
+  createFavorite,
+  updateFavorite,
+  deleteFavorite,
   addGamesToFavorite,
   removeGameFromFavorite
 }

@@ -13,16 +13,24 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'userId',
         onDelete: 'CASCADE'
       })
-      Favorite.hasMany(models.Game, {
-        foreignKey: 'gameId',
-        onDelete: 'CASCADE'
-      })
+      // Favorite.hasMany(models.Game, {
+      //   foreignKey: 'gameId',
+      //   onDelete: 'CASCADE'
+      // })
     }
   }
   Favorite.init(
     {
       title: DataTypes.STRING,
-      image: DataTypes.STRING
+      image: DataTypes.STRING,
+      userId: {
+        type: DataTypes.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'users',
+          key: 'id'
+        }
+      }
     },
     {
       sequelize,
